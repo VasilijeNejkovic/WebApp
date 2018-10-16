@@ -1,6 +1,12 @@
 <html>
 <head>
 
+<?php
+spl_autoload_register(function($class){
+require_once "classes/{$class}.php";
+});
+ ?>
+
 <h1>Moj sajt</h1>
 <hr>
 
@@ -17,18 +23,12 @@
 
 <div class="">
 
-  <?php
+<?php
  if(isset($_POST['submit']))
   {
 
-    $u = $_POST['user'];
-    $p = $_POST['psw'];
-
-      if($u == "Vasilije" && $p=="Nejkovic")
-        {
-          $var=
-
-        }
+    $user = new user ($_POST['user'],$_POST['psw']);
+    echo $user->name;
 
   }
 
